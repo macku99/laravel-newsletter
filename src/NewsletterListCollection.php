@@ -41,7 +41,7 @@ class NewsletterListCollection extends Collection
             return $this->getDefault();
         }
 
-        $list = $this->first(function ($index, NewsletterList $newletterList) use ($name) {
+        $list = $this->first(function (NewsletterList $newletterList) use ($name) {
             return $newletterList->getName() === $name;
         });
 
@@ -59,7 +59,7 @@ class NewsletterListCollection extends Collection
      */
     public function getDefault()
     {
-        $defaultList = $this->first(function ($index, NewsletterList $newletterList) {
+        $defaultList = $this->first(function (NewsletterList $newletterList) {
             return $newletterList->getName() === $this->defaultListName;
         });
 
